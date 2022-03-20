@@ -19,12 +19,10 @@ source('gender.R')
 
 "process is called by processFile"
 process <- function(path) {
-    content1 <- list(label = 'Sorry, an error occurred.', prob = 0, data = NULL)
     content5 <- list(label = '', prob = 0, data = NULL)
 
     tryCatch({
-        content1 <- gender(path, 1)
-        content5 <- gender(path, 5, content1)
+        content5 <- gender(path, 5)
     }, error = function(e) {
         print(paste0('Error in method process(): ', e))
     })
